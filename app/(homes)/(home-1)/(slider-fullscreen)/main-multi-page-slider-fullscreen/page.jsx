@@ -8,7 +8,7 @@ import Hero4 from "@/components/homes/home-1/heros/Hero4";
 
 export const metadata = {
   title:
-    "Home 1 Slider Fullscreen MultiPage || Resonance &mdash; One & Multi Page React Nextjs Creative Template",
+    "Multi 1 Slider Fullscreen MultiPage || Resonance &mdash; One & Multi Page React Nextjs Creative Template",
   description:
     "Resonance &mdash; One & Multi Page React Nextjs Creative Template",
 };
