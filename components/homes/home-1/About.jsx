@@ -36,19 +36,13 @@ export default function About() {
         </div>
       </div>
       <div className="col-lg-6 col-xl-5 offset-xl-1">
-        <h4 className="h5">Our Mission</h4>
+        <h4 className="h5">Onze missie</h4>
         <p className="text-gray">
-          We believe that a website is the foundation of a successful online
-          presence, and our goal is to help businesses establish a&nbsp;strong
-          digital presence. Our process begins with understanding your business
-          goals.
-        </p>
-        <h4 className="h5">Our Vision</h4>
+        Onze missie is om bedrijven te voorzien van resultaatgerichte websites en digitale oplossingen die niet alleen indruk maken, maar ook conversies opleveren. We willen ervoor zorgen dat elke klant het maximale uit zijn online aanwezigheid haalt, door hoogwaardige diensten te leveren die zijn afgestemd op hun unieke bedrijfsbehoeften. Door innovatie, maatwerk en toewijding streven we naar langdurig succes voor onze klanten.
+</p>
+        <h4 className="h5">Onze Visie</h4>
         <p className="text-gray">
-          We then use this information to create a custom website that not only
-          reflects your brand but also helps you achieve your business
-          objectives. From responsive design to intuitive navigation, we focus
-          on every detail.
+        Bij Multichoice Agency geloven we in het creëren van digitale oplossingen die bedrijven laten groeien. We streven ernaar om niet alleen mooie, maar vooral effectieve websites en digitale producten te ontwikkelen, die onze klanten helpen om in een steeds veranderende online wereld te excelleren. Onze visie is om dé strategische partner te zijn die bedrijven online laat uitblinken.
         </p>
       </div>
     </div>

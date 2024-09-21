@@ -5,22 +5,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const sections = [
   {
-    bgImage: "/assets/images/full-width-images/section-bg-5.jpg",
-    title: "Resonance Creative Studio",
-    subtitle: "Maximize your online impact with our solutions.",
-    status: "Based in London, United Kingdom",
+    videoSrc: "/assets/videos/video-1.mp4",
+    title: "Professioneel Webdesign & Development",
+    subtitle: "Maximaliseer uw online impact met onze op maat gemaakte oplossingen voor webdesign en SEO.",
+    status: "Op basis van de nieuwste webontwikkelingstechnieken in London, Verenigd Koninkrijk",
   },
   {
-    bgImage: "/assets/images/full-width-images/section-bg-3.jpg",
-    title: "Resonance Creative Studio",
-    subtitle: "Grow your business with new online experience.",
-    status: "Based in London, United Kingdom",
+    videoSrc: "/assets/videos/video-5.mp4",
+    title: "Webontwikkeling op Maat voor Bedrijfs- en E-commerce Websites",
+    subtitle: "Verhoog uw omzet met een geheel nieuwe online ervaring en conversiegerichte website.",
+    status: "E-commerce oplossingen en maatwerk webontwikkeling al 10 jaar actief met meer dan 100+ klanten",
   },
   {
-    bgImage: "/assets/images/full-width-images/section-bg-6.jpg",
-    title: "Resonance Creative Studio",
-    subtitle: "Redefine your strategy for long-term success.",
-    status: "Based in London, United Kingdom",
+    videoSrc: "/assets/videos/video-7.mp4",
+    title: "Strategisch Webontwerp voor Langdurig Succes",
+    subtitle: "Herdefinieer uw strategie en verbeter uw online zichtbaarheid voor duurzame groei.",
+    status: "Digitale strategieën en webdevelopment voor iedere soort onderneming",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function Hero4() {
         }}
         watchSlidesProgress
         resizeObserver
-        className=" home-section fullwidth-slider-fade bg-dark light-content owl-carousel owl-theme overflow-hidden position-static"
+        className="home-section fullwidth-slider-fade bg-dark light-content owl-carousel owl-theme overflow-hidden position-static"
         style={{
           opacity: 1,
           display: "block",
@@ -57,13 +57,28 @@ export default function Hero4() {
         {/* Team item */}
         {sections.map((elm, index) => (
           <SwiperSlide className="owl-item" key={index}>
-            <section
-              className="home-section bg-scroll bg-dark-alpha-60 light-content"
-              style={{
-                backgroundImage: `url(${elm.bgImage})`,
-              }}
-            >
+            <section className="home-section bg-scroll bg-dark-alpha-60 light-content">
               <div className="container min-height-100vh d-flex align-items-center pt-100 pb-100 pt-sm-120 pb-sm-120">
+                {/* Video Background */}
+                <video
+                  className="video-background"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    zIndex: "-1",
+                  }}
+                >
+                  <source src={elm.videoSrc} type="video/mp4" />
+                </video>
+
                 {/* Home Section Content */}
                 <div className="home-content">
                   <div className="row">
@@ -88,12 +103,12 @@ export default function Hero4() {
                           tabIndex="-1"
                         >
                           <span className="btn-animate-y">
-                            <span className="btn-animate-y-1">Learn More</span>
+                            <span className="btn-animate-y-1">Zo doen wij dat</span>
                             <span
                               className="btn-animate-y-2"
                               aria-hidden="true"
                             >
-                              Learn More
+                              Zo doen wij dat
                             </span>
                           </span>
                         </a>
@@ -105,13 +120,13 @@ export default function Hero4() {
                         >
                           <span className="btn-animate-y">
                             <span className="btn-animate-y-1">
-                              Get In Touch
+                              Bekijk ons portfolio
                             </span>
                             <span
                               className="btn-animate-y-2"
                               aria-hidden="true"
                             >
-                              Get In Touch
+                              Bekijk ons portfolio
                             </span>
                           </span>
                         </a>

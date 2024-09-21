@@ -3794,7 +3794,7 @@ html:not(.mobile) .wow-p {
   align-items: center;
   max-width: 188px;
   height: var(--menu-bar-height);
-  transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
+  transition: all 0.4s cubic-bezier(0, 0, 0.58, 1);
 }
 .nav-logo-wrap .logo img {
   max-height: 100%;
