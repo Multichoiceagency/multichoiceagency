@@ -17,22 +17,22 @@ interface Section {
 // The sections data with image, title, subtitle, and status
 const sections: Section[] = [
   {
-    bgImage: "/assets/images/full-width-images/section-bg-5.jpg",
-    title: "Resonance Creative Studio",
-    subtitle: "Maximize your online impact with our solutions.",
-    status: "Based in London, United Kingdom",
+      bgImage: "/assets/images/full-width-images/section-bg-5.jpg",
+      title: "Resonance Creative Studio",
+      subtitle: "Maximize your online impact with our solutions.",
+      status: ""
   },
   {
-    bgImage: "/assets/images/full-width-images/section-bg-3.jpg",
-    title: "Resonance Creative Studio",
-    subtitle: "Grow your business with a new online experience.",
-    status: "Based in London, United Kingdom",
+      bgImage: "/assets/images/full-width-images/section-bg-3.jpg",
+      title: "Resonance Creative Studio",
+      subtitle: "Grow your business with a new online experience.",
+      status: ""
   },
   {
-    bgImage: "/assets/images/full-width-images/section-bg-6.jpg",
-    title: "Resonance Creative Studio",
-    subtitle: "Redefine your strategy for long-term success.",
-    status: "Based in London, United Kingdom",
+      bgImage: "/assets/images/full-width-images/section-bg-6.jpg",
+      title: "Resonance Creative Studio",
+      subtitle: "Redefine your strategy for long-term success.",
+      status: ""
   },
 ];
 
