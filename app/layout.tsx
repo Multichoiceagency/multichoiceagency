@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import { ThemeProvider } from "./components/theme-provider";
 import "./globals.css"; // Keep this for any other global styles you may still need
 
@@ -27,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+         <Header /> {children}
         </ThemeProvider>
       </body>
     </html>
