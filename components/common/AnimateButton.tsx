@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function AnimateButton({ text }) {
+interface AnimateButtonProps {
+  text: string;
+}
+
+const AnimateButton: React.FC<AnimateButtonProps> = ({ text }) => {
   return (
     <span className="btn-animate-y">
       <span className="btn-animate-y-1">
@@ -11,4 +15,6 @@ export default function AnimateButton({ text }) {
       </span>
     </span>
   );
-}
+};
+
+export default AnimateButton;

@@ -1,9 +1,11 @@
-import HeroSlider from "./components/HeroSlider";
+import FullscreenSlider from "./components/FullscreenSlider";
+
+
 
 export default function Home() {
   return (
     <section className="w-full">
-      <HeroSlider />
+      <FullscreenSlider />
     </section>
   );
 }
