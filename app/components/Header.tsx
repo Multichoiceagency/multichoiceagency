@@ -1,122 +1,172 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes, faPhone } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
-import Image from 'next/image';
+import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import MegaMenu from "./MegaMenu";
+import { ChevronDown, Menu, X } from "lucide-react";
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+const Header: React.FC = () => {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [submenuOpen, setSubmenuOpen] = useState<string | null>(null); // For toggling submenus on mobile
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const headerRef = useRef<HTMLDivElement>(null);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
+  // Controleert of je naar beneden scrollt
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuItems = [
-    { name: 'HOME', href: '/' },
-    { name: 'CARS', href: '/cars' },
-    { name: 'BOATS', href: '/boats' },
-    { name: 'FASHION', href: '/fashion' },
-    { name: 'COLLABORATIONS', href: '/collaborations' },
-    { name: 'BRAND', href: '/brand' },
-    { name: 'CONTACT', href: '/contact' },
-  ];
+  const toggleMenu = (menu: string) => {
+    setActiveMenu(prevMenu => (prevMenu === menu ? null : menu));
+    setMenuOpen(!menuOpen); // Toggle de kleur als menu opent of sluit
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(prev => !prev);
+    setMenuOpen(false); // Sluit menu als de mobiele versie opent
+  };
+
+  const toggleSubmenu = (menu: string) => {
+    setSubmenuOpen(prev => (prev === menu ? null : menu)); // Toggle submenu open/close
+  };
+
+  const closeAllMenus = () => {
+    setActiveMenu(null);
+    setMobileMenuOpen(false);
+    setSubmenuOpen(null); // Close all submenus on close
+    setMenuOpen(false); // Sluit alle menu's en zet kleur terug
+  };
+
+  // Dynamische achtergrondkleur op basis van de status (default, menuOpen, isScrolled)
+  const getHeaderBgColor = () => {
+    if (menuOpen) return "bg-primary"; // Primaire kleur als MegaMenu open is
+    if (isScrolled) return "bg-foreground"; // Voorgrondkleur bij scrollen
+    return "bg-transparent"; // Transparant als standaard
+  };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-4 md:px-8 py-2 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className={`transition-all duration-300 ${isScrolled ? 'scale-75' : ''}`}>
-          <Image
-            src={isScrolled ? '/logos/logo-zwart.png' : '/logos/logo-wit.png'}
-            alt="Logo"
-            width={160}
-            height={64}
-            className="h-12 md:h-16 w-auto"
-          />
-        </Link>
+    <header
+      ref={headerRef}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getHeaderBgColor()} py-4 md:py-6`}
+    >
+      <div className="container w-full  mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="flex items-center space-x-6">
+          {/* Logo */}
+          <Link href="/">
+            <Image
+              src="/images/logo-multichoiceagency.png"
+              alt="Asana Logo"
+              width={150}
+              height={42}
+              className="h-auto w-auto"
+            />
+          </Link>
 
-        {/* Desktop Menu Items */}
-        <nav className="hidden md:flex space-x-6">
-          {menuItems.map((item) => (
-            <Link key={item.name} href={item.href} className={`font-bold ${isScrolled ? 'text-black' : 'text-white'}`}>
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Desktop CTA Button */}
-        <div className="hidden md:block">
-          <Button variant="default">
-            Gratis offerte
-          </Button>
+          {/* Navigatie */}
+          <nav className="hidden md:flex space-x-6">
+            {["Functies", "Oplossingen", "Middelen", "Enterprise", "Prijsberekening"].map(item => (
+              <button
+                key={item}
+                onClick={() => toggleMenu(item)}
+                className={`flex items-center ${isScrolled || menuOpen ? "text-foreground" : "text-white"} hover:text-primary`}
+              >
+                {item} <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+            ))}
+          </nav>
         </div>
 
-        {/* Mobile Call Icon */}
-        <motion.div 
-          className="md:hidden relative"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <a 
-            href="tel:+1234567890" 
-            className="flex items-center justify-center w-10 h-10 bg-green-500 rounded-full"
-            aria-label="Phone"
-          >
-            <FontAwesomeIcon icon={faPhone} className="text-white" />
-          </a>
-        </motion.div>
+        {/* Contact opnemen met verkoop, Inloggen, Aan de slag */}
+        <div className="flex items-center space-x-4">
+          {/* Contact opnemen met verkoop en Inloggen */}
+          <nav className="hidden md:flex space-x-6">
+            <Link href="#" className="text-muted-foreground hover:text-primary">
+              Contact opnemen met verkoop
+            </Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary">
+              Inloggen
+            </Link>
+          </nav>
 
-        {/* Mobile Hamburger Menu */}
-        <button
-          className="md:hidden text-2xl focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} className={isScrolled ? 'text-black' : 'text-white'} />
-        </button>
+          {/* Primair: Aan de slag */}
+          <Button variant="default" className="hidden md:inline-block">
+            Aan de slag
+          </Button>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-2xl focus:outline-none"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
-      {/* Fullscreen Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-0 bg-white z-50 flex items-center justify-center"
-          >
-            <nav className="text-center">
-              {menuItems.map((item) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      {/* Desktop MegaMenu */}
+      <MegaMenu activeMenu={activeMenu} onClose={closeAllMenus} />
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-background z-50 flex flex-col">
+          <div className="flex justify-between items-center p-4">
+            <Image
+              src="/images/logo-multichoiceagency.png"
+              alt="Asana Logo"
+              width={150}
+              height={42}
+              className="h-auto w-auto"
+            />
+            <button onClick={closeAllMenus} className="text-2xl focus:outline-none" aria-label="Close Menu">
+              <X />
+            </button>
+          </div>
+          <div className="flex-grow overflow-y-auto p-4">
+            {["Functies", "Oplossingen", "Middelen", "Enterprise", "Prijsberekening"].map(menu => (
+              <div key={menu}>
+                <button
+                  onClick={() => toggleSubmenu(menu)}
+                  className="w-full text-left py-2 flex justify-between items-center text-foreground hover:text-primary"
                 >
-                  <Link 
-                    href={item.href} 
-                    className="block text-2xl font-bold my-4"
-                    onClick={toggleMenu}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  {menu} <ChevronDown className="h-4 w-4" />
+                </button>
+                {submenuOpen === menu && (
+                  <div className="pl-4 py-2 space-y-2">
+                    {/* Example Submenu Items */}
+                    <Link href="#" className="block hover:text-primary">
+                      Submenu Item 1
+                    </Link>
+                    <Link href="#" className="block hover:text-primary">
+                      Submenu Item 2
+                    </Link>
+                    <Link href="#" className="block hover:text-primary">
+                      Submenu Item 3
+                    </Link>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="p-4">
+            <Button variant="default" className="w-full mb-2">
+              Aan de slag
+            </Button>
+            <Button variant="outline" className="w-full">
+              Inloggen
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
