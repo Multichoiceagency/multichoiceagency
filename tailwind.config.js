@@ -10,7 +10,7 @@ module.exports = {
 theme: {
 	extend: {
 		fontFamily: {
-			sans: ['Barlow"', 'sans-serif']
+			sans: ['DM Sans"', 'sans-serif']
 		},
 		screens: {
 			xs: '340px',
@@ -18,7 +18,7 @@ theme: {
 			md: '768px',
 			lg: '992px',
 			xl: '1200px',
-			'2xl': '1400px'
+			'2xl': '1440px'
 		},
 		fontSize: {
 			h1: ['2.5rem', { lineHeight: '3.75rem' }],

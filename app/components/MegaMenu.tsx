@@ -42,7 +42,7 @@ const menuItems: Record<string, MenuItem[]> = {
       ]
     },
   ],
-  Extra: [
+  Oplossingen: [
     {
       name: 'ANALYTICS',
       href: '/analytics',
@@ -80,7 +80,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ activeMenu, onClose }) => {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
           className="absolute inset-x-0 top-[7rem] bg-background shadow-lg z-40 overflow-y-auto"
-          style={{ height: '65vh' }}  // Adjusted to align with the header and limit the height
+          style={{ height: '65vh' }}
         >
           <div className="container mx-auto px-4 py-8 relative">
             <button

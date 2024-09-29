@@ -41,7 +41,7 @@ const slides: SlideContent[] = [
     button2Href: "/contact",
   },
   {
-    videoUrl: "/videos/video-3.mp4",
+    videoUrl: "/videos/video-7.mp4",
     subtitle: "Full-Service Webdesign",
     title: "Van Concept tot Online Succes",
     description: "Webdesign, development, branding en strategie. Wij bieden een complete oplossing voor uw online aanwezigheid.",
