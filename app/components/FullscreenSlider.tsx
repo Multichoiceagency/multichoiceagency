@@ -95,7 +95,7 @@ export default function FullscreenSlider() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center p-4 text-white">
-                <div className="max-w-4xl w-full mx-auto">
+                <div className="max-w-5xl w-full mx-auto">
                   <motion.h5 
                     className="text-lg mb-2 uppercase tracking-wider"
                     initial="hidden"
@@ -106,7 +106,7 @@ export default function FullscreenSlider() {
                     {slide.subtitle}
                   </motion.h5>
                   <motion.h1 
-                    className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
+                    className="md:text-6xl font-bold mb-4"
                     initial="hidden"
                     animate="visible"
                     variants={fadeIn}
@@ -115,7 +115,7 @@ export default function FullscreenSlider() {
                     {slide.title}
                   </motion.h1>
                   <motion.p 
-                    className="text-xl md:text-2xl mb-8 font-medium"
+                    className="max-w-1xl justify-center md:text-sm mb-8"
                     initial="hidden"
                     animate="visible"
                     variants={fadeIn}
@@ -132,17 +132,12 @@ export default function FullscreenSlider() {
                   >
                     <Button
                       variant="default"
-                      size="lg"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg font-bold py-6 px-8"
-                      asChild
                     >
                       <a href={slide.button1Href}>{slide.button1}</a>
                     </Button>
                     <Button
-                      variant="secondary"
-                      size="lg"
-                      className="bg-secondary text-secondary-foreground hover:bg-secondary/80 text-lg font-bold py-6 px-8"
-                      asChild
+                      variant="outline"
+                      className="text-white bg-transparent"
                     >
                       <a href={slide.button2Href}>{slide.button2}</a>
                     </Button>

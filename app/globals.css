@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&display=swap');
 
 body {
-  font-family: var(--font-barlow), sans-serif;
+  font-family: 'Unbounded', sans-serif; /* Apply Unbounded font globally */
   margin: 0;
   line-height: normal;
   -webkit-font-smoothing: antialiased; /* Ensures better font rendering on WebKit browsers */
@@ -79,9 +79,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
   }
 }

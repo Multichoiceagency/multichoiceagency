@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Lines from "./components/Lines";
 import { ThemeProvider } from "./components/theme-provider";
 import "./globals.css"; // Keep this for any other global styles you may still need
 
@@ -19,8 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.className} suppressHydrationWarning>
-      <head>
-      </head>
+      <head />
+      
       <body>
         <ThemeProvider
           attribute="class"
@@ -28,7 +29,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-         <Header /> {children}
+          <Lines />
+          {/* Content of the website */}
+          <div className="relative z-10">
+            <Header />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

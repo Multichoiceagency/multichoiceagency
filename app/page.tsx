@@ -1,13 +1,23 @@
-import FullscreenSlider from "./components/FullscreenSlider";
-import PortfolioSection from "./components/Portfolio";
+import BrancheSection from "./components/BrancheSection";
+import { GoogleGeminiEffectDemo } from "./components/GeminiEffect";
+import { HeroParallaxDemo } from "./components/HeroParallaxDemo";
+import { OverOns } from "./components/OverOns";
 
 
 
 export default function Home() {
   return (
+
+
     <section className="w-full">
-      <FullscreenSlider />
-      <PortfolioSection />
+    <GoogleGeminiEffectDemo />
+
+      <OverOns />
+      <HeroParallaxDemo />
+      <BrancheSection />
+
+
     </section>
+
   );
 }

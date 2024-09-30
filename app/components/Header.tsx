@@ -71,7 +71,7 @@ const Header: React.FC = () => {
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getHeaderBgColor()} py-4 md:py-6`}
     >
-      <div className="container w-full mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="w-full mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-6">
           <Link href="/">
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Main navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-6 font-semibold">
             {["Functies", "Oplossingen", "Middelen", "Enterprise", "Prijsberekening"].map(item => (
               <button
                 key={item}
