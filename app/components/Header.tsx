@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Button } from "@/components/ui/button";
 import MegaMenu from "./MegaMenu";
 import { ChevronDown, Menu, X } from "lucide-react";

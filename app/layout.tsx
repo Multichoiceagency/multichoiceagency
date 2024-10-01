@@ -23,6 +23,7 @@ export default function RootLayout({
       <head />
       
       <body>
+        <Lines  />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
