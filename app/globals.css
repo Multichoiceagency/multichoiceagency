@@ -83,3 +83,12 @@ body {
   body {
   }
 }
+.imageIcon {
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 1478px;
+  object-fit: cover;
+}
+
