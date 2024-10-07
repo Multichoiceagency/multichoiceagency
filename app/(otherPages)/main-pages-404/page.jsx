@@ -46,9 +46,9 @@ export default function MainAboutPage1() {
                 <div className="inner-nav desktop-nav">
                   <ul className="clearlist scroll-nav local-scroll justify-content-end">
                     <li className="active">
-                      <a href="mailto:ibthemes21@gmail.com">
+                      <a href="mailto:info@multichoicagency.nl">
                         <i className="mi-email align-center" />
-                        ibthemes21@gmail.com
+                        info@multichoiceagency.nl
                       </a>
                     </li>
                     <li>
@@ -86,7 +86,7 @@ export default function MainAboutPage1() {
                             data-wow-delay=".2s"
                           >
                             <h2 className="section-descr mb-20">
-                              The page you were looking for could not be found.
+                              De pagina die je zoekt is helaas niet gevonden!
                             </h2>
                           </div>
                           <div
@@ -98,7 +98,7 @@ export default function MainAboutPage1() {
                               className="btn btn-mod btn-w btn-round btn-medium btn-hover-anim"
                             >
                               <i className="mi-arrow-left size-24 align-center" />
-                              <span>Back To Home Page</span>
+                              <span>Terug naar home</span>
                             </Link>
                           </div>
                         </div>
